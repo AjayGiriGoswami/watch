@@ -1,0 +1,134 @@
+.Cart-Container {
+  width: 100%;
+  max-width: 100%;
+  background-color: white;
+  padding: 20px;
+  border-radius: 50px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.Header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.Heading {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.Action {
+  font-size: 14px;
+  color: hsl(0, 97%, 49%);
+  cursor: pointer;
+}
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  background-color: #fff;
+  border-radius: 20px;
+  box-shadow: 0 0 10px rgba(19, 17, 17, 0.1);
+}
+
+.cart-item img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  margin-right: 20px;
+  border-radius: 30px;
+}
+
+.cart-item h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.cart-item p {
+  font-size: 14px;
+  color: #777;
+}
+
+.btnn {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+}
+
+.btnn button {
+  background-color: #f5f5f5;
+  border: none;
+  padding: 5px 10px;
+  margin-left: 5px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.btnn button:hover {
+  background-color: #f73f07;
+}
+
+.checkout {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.total {
+  display: flex;
+  align-items: center;
+}
+
+.Subtotal {
+  font-size: 27px;
+  color: #000000;
+  font-weight: 700;
+}
+
+.items {
+  font-size: 14px;
+  color: #777;
+  margin-left: 10px;
+}
+
+.total-amount {
+  font-size: 24px;
+  font-weight: bold;
+  color: #007bff;
+  margin-left: 20px;
+}
+.aaa{
+  color: #000000;
+}
+
+.button {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-left: auto;
+}
+
+.button:hover {
+  background-color: #ff0404;
+  border-radius: 50px;
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 768px) {
+  .cart-item img {
+    width: 70px;
+    height: 70px;
+  }
+
+  .cart-item h3 {
+    font-size: 16px;
+  }
+}
