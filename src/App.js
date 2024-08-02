@@ -1,14 +1,12 @@
 import React, { useState } from "react";
 import "./App.css";
-import { Route, Routes } from "react-router-dom";
-import Login from "./Components/Login/Login";
 import Main from "./Components/Pages/Main";
 import Cart from "./Components/Cart/Cart";
 import Navbars from "./Components/Navbar/Navbar";
 import products from "./Components/Pages/Api";
 import Footer from "./Components/Footer/Footer";
-import Signup from "./Components/Login/Signup";
-import Forgot from "./Components/Login/Forgot";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const App = () => {
   const [cart, setcart] = useState([]);
@@ -28,12 +26,18 @@ const App = () => {
     cart.forEach((product) => {
       if (item.id === product.id) {
         present = true;
-        alert("Already Add in Cart");
+        toast.success("Item is already in cart",{
+          position: "top-center"
+        });
         return;
       }
     });
     if (present) return;
+    toast.success("Item is add to cart",{
+      position:"top-center"
+    })
     setcart([...cart, item]);
+
   };
 
   const remove = (id) => {
@@ -66,11 +70,6 @@ const App = () => {
   return (
     <div>
       <Navbars size={cart.length} setshow={setshow} filteritem={filteritem} />
-      <Routes>
-        <Route path="/Login" element={<Login/>} />
-        <Route path="/Signup" element={<Signup/>} />
-        <Route path="/Forgot" element={<Forgot/>} />
-      </Routes>
       {show ? (
         <Cart
           cart={cart}
@@ -83,6 +82,7 @@ const App = () => {
         <Main handleitem={handleitem} />
       )}
       <Footer/>
+      <ToastContainer/>
     </div>
   );
 };

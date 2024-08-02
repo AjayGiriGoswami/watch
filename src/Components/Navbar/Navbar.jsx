@@ -1,73 +1,29 @@
+import React from "react";
 import Container from "react-bootstrap/Container";
-import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
-import NavDropdown from "react-bootstrap/NavDropdown";
-import { Link } from "react-router-dom";
-import "./Navbar.css";
+import { NavLink } from "react-router-dom";
+import "./Navbar.css"
 
-function Navbars({ size, setshow, filteritem }) {
+const Navbars = ({ size,setshow }) => {
   return (
-    <Navbar variant="dark" bg="dark" expand="lg">
-      <Container fluid>
-        <Navbar.Brand as={Link} to ="/" onClick={() => setshow(false)}>
-          Goswami{" "}
-          <i class="fa-solid fa-shop" onClick={() => setshow(false)}></i>
-        </Navbar.Brand>
-        <Navbar.Toggle aria-controls="navbar-dark-example" />
-
-        <Navbar.Collapse id="navbar-dark-example">
-          <Nav>
-            <Nav.Link as={Link} to="/Home" onClick={() => setshow(false)}>
-              Home{" "}
-              <i class="fa-solid fa-house" onClick={() => setshow(false)}></i>
-            </Nav.Link>
-            <Nav.Link as={Link} to="/Login">
-              User <i class="fa-solid fa-user"></i>
-            </Nav.Link>
-            <Nav.Link
-              as={Link}
-              to="/Cart"
-              className="cart"
-              onClick={() => setshow(true)}
-            >
-              Cart{" "}
-              <i
-                class="fa-solid fa-cart-shopping"
-                onClick={() => setshow(false)}
-              ></i>
-              <span>{size}</span>
-            </Nav.Link>
-          </Nav>
-          <Nav>
-            <NavDropdown
-              id="nav-dropdown-dark-example"
-              title="Men"
-              menuVariant="dark"
-            >
-              <NavDropdown.Item>
-                <Nav.Link
-                  as={Link}
-                  to="/Watch"
-                  onClick={() => filteritem("Watch")}
-                >
-                  Watch
-                </Nav.Link>
-              </NavDropdown.Item>
-              <NavDropdown.Item>
-                <Nav.Link
-                  as={Link}
-                  to="/Belt"
-                  onClick={() => filteritem("Belt")}
-                >
-                  Belt
-                </Nav.Link>
-              </NavDropdown.Item>
-            </NavDropdown>
-          </Nav>
-        </Navbar.Collapse>
-      </Container>
-    </Navbar>
+    <>
+      <Navbar style={{ height: "60px", background: "black", color: "white" }}>
+        <Container>
+          <NavLink to="/" className="text-decoration-none text-light mx-2">
+            <h3 className="text-light" onClick={()=>setshow(false)}>Ecommerce</h3>
+          </NavLink>
+          <NavLink to="/cart" className="text-decoration-none text-light mx-2">
+            <div id="ex4">
+              <span className="p1 fa-stack fa-2x has-badge">
+                <i class="fa-solid fa-cart-shopping" onClick={()=>setshow(true)}></i>
+                <span className="cart">{size}</span>
+              </span>
+            </div>
+          </NavLink>
+        </Container>
+      </Navbar>
+    </>
   );
-}
+};
 
 export default Navbars;

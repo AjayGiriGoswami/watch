@@ -1,8 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 import "./Cart.css";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const Cart = ({ cart, addItem, remove, DecreaseItem, clearCart }) => {
-  const [aa, setaa] = useState([]);
+  const navigate = useNavigate();
+
   const getTotalPrice = () => {
     return cart.reduce((total, item) => {
       return total + item.discountPrice * item.Amount;
@@ -10,17 +13,26 @@ const Cart = ({ cart, addItem, remove, DecreaseItem, clearCart }) => {
   };
 
   const handleCheckout = () => {
-    console.log(aa);
-    alert("Checkout successful!");
-    setaa([]);
+    clearCart();
+    navigate("/"); 
+    toast.success("Thank You for Shopping With Us!",{
+      position:"top-center"
+    })
   };
+
+  const handleClearCart = ()=>{
+    clearCart();
+    toast.success("Item is Remove",{
+      position:"top-center"
+    })
+  }
 
   return (
     <div div className="a">
       <div className="Cart-Container">
         <div className="Header">
           <h3 className="Heading">Shopping Cart</h3>
-          <h5 className="Action" onClick={clearCart}>
+          <h5 className="Action" onClick={handleClearCart}>
             Remove all
           </h5>
         </div>

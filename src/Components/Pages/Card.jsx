@@ -24,6 +24,8 @@ const Cards = ({ item, handleitem }) => {
             <span class="strike"><i class="fa-solid fa-indian-rupee-sign"></i> {Price}</span> &nbsp;
             <span className="discount"> ({discountPercentage}% Off)</span>
           </div>
+
+          
           <button className="btn" onClick={() => handleitem(item)}>
             Add to Cart <i class="fa-solid fa-cart-shopping"></i>
           </button>
